@@ -19,9 +19,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-/**
- * A placeholder fragment containing a simple view.
- */
 class PlaceholderFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
@@ -65,10 +62,8 @@ class PlaceholderFragment : androidx.fragment.app.Fragment() {
         val getHomeProductResponse: Call<DeviceDTO> =
             ApplicationController.instance.networkService.getDeviceListResponse("application/json")
 
-        Log.d("asd", "실행")
         getHomeProductResponse.enqueue(object : Callback<DeviceDTO> {
             override fun onFailure(call: Call<DeviceDTO>, t: Throwable) {
-                Log.d("asd", t.localizedMessage)
             }
 
             override fun onResponse(
@@ -76,20 +71,12 @@ class PlaceholderFragment : androidx.fragment.app.Fragment() {
                 response: Response<DeviceDTO>
             ) {
                 if (response.isSuccessful) {
-                    Log.d("asd", response.message())
                     setDeviceList(context, inflater, response.body()!!.devices)
                 }
             }
         })
     }
 
-    private fun demo(context: Context, inflater: View) {
-        val deviceList = ArrayList<DeviceDTO.Device>()
-        var adapter = DeviceListAdapter(context, deviceList)
-        inflater.findViewById<RecyclerView>(R.id.rv_device_list).layoutManager =
-            LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        inflater.findViewById<RecyclerView>(R.id.rv_device_list).adapter = adapter
-    }
 
     private fun setDeviceList(context: Context, inflater: View, list: List<DeviceDTO.Device>) {
         var adapter = DeviceListAdapter(context, list)
@@ -111,16 +98,7 @@ class PlaceholderFragment : androidx.fragment.app.Fragment() {
 
 
     companion object {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private const val ARG_SECTION_NUMBER = "section_number"
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         @JvmStatic
         fun newInstance(sectionNumber: Int): PlaceholderFragment {
             return PlaceholderFragment().apply {
