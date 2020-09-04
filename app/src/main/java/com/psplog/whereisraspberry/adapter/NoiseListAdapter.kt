@@ -10,9 +10,9 @@ import com.psplog.whereisraspberry.R
 import com.psplog.whereisraspberry.dto.device.DeviceDTO
 import com.psplog.whereisraspberry.dto.device.NoiseDTO
 
-class NoiseListAdapter(val context: Context, var list: List<NoiseDTO.Data.Noise>) : RecyclerView.Adapter<NoiseListAdapter.Holder>() {
+class NoiseListAdapter(var list: List<NoiseDTO.Data.Noise>) : RecyclerView.Adapter<NoiseListAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        var view = LayoutInflater.from(context).inflate(R.layout.item_home_device_list, parent, false)
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_device_list, parent, false)
         return Holder(view)
     }
 

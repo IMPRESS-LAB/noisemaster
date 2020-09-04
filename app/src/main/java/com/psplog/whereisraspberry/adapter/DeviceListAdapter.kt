@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.psplog.whereisraspberry.R
 import com.psplog.whereisraspberry.dto.device.DeviceDTO
 
-class DeviceListAdapter(val context: Context, var list: List<DeviceDTO.Device>) : RecyclerView.Adapter<DeviceListAdapter.Holder>() {
+class DeviceListAdapter( var list: List<DeviceDTO.Device>) : RecyclerView.Adapter<DeviceListAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        var view = LayoutInflater.from(context).inflate(R.layout.item_home_device_list, parent, false)
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_device_list, parent, false)
         return Holder(view)
     }
 

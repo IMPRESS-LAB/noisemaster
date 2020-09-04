@@ -13,7 +13,7 @@ interface NetworkService {
     fun getNoiseListResponse(
         @Header("Content-Type") content_type: String,
         @Query("device") device: String?=null,
-        @Query("decibel") decibel: String?=null,
+        @Query("decibel") decibel: Int?=null,
         @Query("temperature") temperature: String?=null,
         @Query("tag") tag: String?=null,
         @Query("page") page: Int?=null,
