@@ -16,7 +16,7 @@ interface NetworkService {
         @Query("decibel") decibel: String?=null,
         @Query("temperature") temperature: String?=null,
         @Query("tag") tag: String?=null,
-        @Query("page") page: String?=null,
+        @Query("page") page: Int?=null,
         @Query("size") size: Int?=50
     ): Call<NoiseDTO>
 
